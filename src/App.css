@@ -3,21 +3,3 @@
   flex-wrap: wrap;
   height: 100vh;
 }
-
-.container-leftBar {
-  flex-basis: 60%;
-  background: red;
-  height: 80vh;
-}
-
-.container-RightBar {
-  flex-basis: 40%; 
-  background: green;
-  height: 80vh;
-}
-
-.container-AltBar {
-  flex-basis: 60%;
-  background: black;
-  height: 20vh;
-}

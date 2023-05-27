@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import './index.scss'
+import './index.scss';
 
 function LeftBar() {
 
@@ -10,6 +10,7 @@ function LeftBar() {
   return (
     <div className='container-leftBar'>
       <div className='leftBar__images-container'>
+        <img className='leftBar__images' src={selectedImage} />
       </div>
     </div>
   );

@@ -91,7 +91,7 @@ const data =
             },
             {
                 "minimumQuantity": 800,
-                "maximumQuantity": 2147483647,
+                "maximumQuantity": 2000,
                 "price": 7.13
             }
         ]

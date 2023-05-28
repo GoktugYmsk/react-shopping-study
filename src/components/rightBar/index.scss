@@ -39,6 +39,8 @@
         display: flex;
         flex-direction: column;
         height: 130px;
+        position: relative !important;
+        bottom: 50px;
 
 
         h4 {
@@ -87,6 +89,153 @@
 
 .container__barem {
     display: flex;
-    background: rgb(241, 240, 240);
-    height: 35%;
+    flex-direction: column;
+    position: relative;
+    height: 180px;
+    padding: 10px;
+    bottom: 50px;
+    background: rgb(229, 229, 229);
+    border: 2px solid red;
+
+    .container__barem-bar {
+        cursor: pointer;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        width: 50%;
+        height: 120px !important;
+        position: relative;
+        bottom: 100px;
+        left: 200px;
+
+        .barem__p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 600;
+            width: 50px;
+            height: 50px;
+            margin-left: 20px;
+
+            &:hover {
+                background: red;
+            }
+        }
+    }
+
+    input {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 30px;
+        margin-left: 20px;
+        width: 80px;
+        height: 30px;
+    }
+}
+
+.barem__amount-p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 220px;
+    font-size: 16px;
+    width: 120px;
+    height: 30px;
+    background: rgb(226, 225, 225);
+}
+
+.container__rightBar-piece {
+    position: relative;
+    bottom: 60px;
+}
+
+.barem__amount__piece {
+    margin-left: 20px;
+}
+
+.barem__amount__info {
+    display: flex;
+    position: relative;
+    bottom: 100px;
+
+
+
+}
+
+.barem__altInfo {
+    display: flex;
+    position: relative;
+    bottom: 100px;
+
+
+    span {
+        color: blue;
+    }
+
+    .barem__altInfo__content {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top: 55px;
+        left: 20px;
+        height: 160px;
+        width: 140px;
+
+
+        .barem__first-chlid {
+            position: relative;
+            bottom: 20px;
+            font-size: 30px;
+        }
+
+        .barem__second-child {
+            display: flex;
+            position: relative;
+            bottom: 50px;
+        }
+
+        .barem__second-third {
+            position: relative;
+            bottom: 100px;
+            left: 110px;
+        }
+    }
+
+    h3 {
+        position: relative;
+        bottom: 20px;
+    }
+
+}
+
+.barem__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 65px;
+    width: 200px;
+    cursor: pointer;
+    background: rgb(255, 204, 0);
+    border-style: none;
+    border-radius: 20px;
+    color: white;
+    position: relative;
+    top: 150px;
+    right: 110px;
+
+    &:hover {
+        background: rgb(251, 187, 37);
+    }
+}
+
+.barem__price__option {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    top: 150px;
+    right: 100px;
 }

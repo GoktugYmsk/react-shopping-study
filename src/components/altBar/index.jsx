@@ -9,14 +9,14 @@ function AltBar() {
   const dispatch = useDispatch();
   const [selectPicture, setSelectPicture] = useState('');
 
-  const resim = useSelector((state) => state.componentControl.resim);
+  const picture = useSelector((state) => state.componentControl.picture);
 
   useEffect(() => {
     if (list.productVariants.length > 0 && list.productVariants[0].images1) {
       const firstImage = list.productVariants[0].images1[0];
       dispatch(setSelectedImage(firstImage));
       setSelectPicture(firstImage);
-    } 
+    }
   }, [list.productVariants, dispatch]);
 
   const handleImageClick = (image) => {
@@ -27,7 +27,7 @@ function AltBar() {
   return (
     <div className='container-calculateBar'>
       {list.productVariants.map((variant, index) => {
-        if (resim === '1' && variant.images1) {
+        if (picture === 'Siyah' && variant.images1) {
           return variant.images1.map((image, idx) => (
             <img
               className={`calculate__images ${selectPicture === image ? 'selected' : ''}`}
@@ -37,30 +37,9 @@ function AltBar() {
               onClick={() => handleImageClick(image)}
             />
           ));
-        } else if (resim === '2' && variant.images2) {
+        }
+        else if (picture === 'Lacivert' && variant.images2) {
           return variant.images2.map((image, idx) => (
-            <img
-              className={`calculate__images ${selectPicture === image ? 'selected' : ''}`}
-              key={idx}
-              src={image}
-              alt="Product"
-              onClick={() => handleImageClick(image)}
-            />
-          ));
-        }
-        else if (resim === '3' && variant.images3) {
-          return variant.images3.map((image, idx) => (
-            <img
-              className={`calculate__images ${selectPicture === image ? 'selected' : ''}`}
-              key={idx}
-              src={image}
-              alt="Product"
-              onClick={() => handleImageClick(image)}
-            />
-          ));
-        }
-        else if (resim === '4' && variant.images4) {
-          return variant.images4.map((image, idx) => (
             <img
               className={`calculate__images ${selectPicture === image ? 'selected' : ''}`}
               key={idx}

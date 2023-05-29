@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     selectedImage: '',
-    resim: '1',
+    picture: 'Siyah',
 }
 
 export const configure = createSlice({
@@ -12,12 +12,12 @@ export const configure = createSlice({
         setSelectedImage: (state, action) => {
             state.selectedImage = action.payload;
         },
-        setResim: (state, action) => {
-            state.resim = action.payload;
+        setPicture: (state, action) => {
+            state.picture = action.payload;
         },
     }
 })
 
-export const { setSelectedImage,setResim } = configure.actions
+export const { setSelectedImage,setPicture } = configure.actions
 
 export default configure.reducer

@@ -41,8 +41,6 @@
         height: 130px;
         position: relative !important;
         bottom: 50px;
-
-
         h4 {
             width: 120px;
         }
@@ -67,6 +65,7 @@
 
             &:hover {
                 color: rgb(94, 94, 94);
+                border: 2px solid black;
             }
         }
     }
@@ -95,7 +94,6 @@
     padding: 10px;
     bottom: 50px;
     background: rgb(229, 229, 229);
-    border: 2px solid red;
 
     .container__barem-bar {
         cursor: pointer;
@@ -119,7 +117,7 @@
             margin-left: 20px;
 
             &:hover {
-                background: red;
+                background: rgb(255, 208, 0);
             }
         }
     }
@@ -128,11 +126,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 80px;
-        height: 30px;
+        position: relative;
+        top: 10px;
         margin-left: 20px;
         width: 80px;
         height: 30px;
+        z-index: 2;
     }
 }
 
@@ -235,7 +234,10 @@
 .barem__price__option {
     position: relative;
     display: flex;
-    flex-wrap: wrap;
-    top: 150px;
-    right: 100px;
+    bottom: 100px;
+    left: 260px;
+}
+.errorColor{
+color: red;
+font-weight: 600;
 }

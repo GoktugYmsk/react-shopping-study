@@ -10,15 +10,16 @@ const RightBar = () => {
     const [selectedSize, setSelectedSize] = useState('');
     const star = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa0HmahLflc6QVFR2q2URFte5EJjChKmGCNA&usqp=CAU'
     const [amountError, setAmounError] = useState(false)
+    const [inputValue, setInputValue] = useState()
+    const [activeBarem, setActiveBarem] = useState(false)
+
     const [list, setList] = useState(data);
-    const [active, setActive] = useState(true)
 
     const dispatch = useDispatch()
 
     const handleColorChange = (color) => {
         setSelectedColor(color);
         setSelectedSize('');
-        setActive(false)
         dispatch(setPicture(color))
     };
 
@@ -42,13 +43,21 @@ const RightBar = () => {
     };
 
     const handleChange = (e) => {
-        if (e > 500) {
-            setAmounError(true)
+        setInputValue(e.target.value);
+
+        const baremAmountMax = Math.max(...list.baremList.map((barem) => barem.maximumQuantity));
+        const baremAmountMin = Math.min(...list.baremList.map((barem) => barem.minimumQuantity));
+
+        if (baremAmountMin < e.target.value && e.target.value < baremAmountMax) {
+            setActiveBarem(true);
+        } else if (e.target.value > 500) {
+            setAmounError(true);
+        } else {
+            setActiveBarem(false);
+            setAmounError(false);
         }
-        else {
-            setAmounError(false)
-        }
-    }
+    };
+
 
     return (
         <div className="container-RightBar">
@@ -74,11 +83,7 @@ const RightBar = () => {
                                 <h4>{attribute.name}</h4>
                                 <div className='rightbar__content__title'>
                                     {attribute.values.map((value) => (
-                                        <p
-                                            key={value}
-                                            onClick={() => handleColorChange(value)}
-                                            className={selectedColor === value ? 'active' : ''}
-                                        >
+                                        <p key={value} onClick={() => handleColorChange(value)} className={selectedColor === value ? 'active' : ''}>
                                             {value}
                                         </p>
                                     ))}
@@ -88,31 +93,18 @@ const RightBar = () => {
                 </div>
                 <div className='rightbar__alt__content'>
                     <h4>Beden</h4>
-                    {active && (
-                        <div className='active__class'>
-                            <p>S</p>
-                            <p>M</p>
-                            <p>L</p>
-                        </div>
-                    )}
                     <div className='rightbar__content-altinformation'>
                         {selectedColor &&
                             data.selectableAttributes
                                 .find((attribute) => attribute.name === 'Beden')
                                 .values.map((size) => (
-                                    <button
-                                        key={size}
-                                        onClick={() => handleSizeChange(size)}
-                                        className={isSizeActive(size) ? 'active' : 'inactive'}
-                                        disabled={!isSizeActive(size)}
-                                    >
+                                    <button key={size} onClick={() => handleSizeChange(size)} className={isSizeActive(size) ? 'active' : 'inactive'} disabled={!isSizeActive(size)}>
                                         {size}
                                     </button>
                                 ))}
                     </div>
                 </div>
             </div>
-
             <div className='container__barem' >
                 <div className='container__barem__tittle'>
                     <h2>Toptan Fiyat</h2>
@@ -121,14 +113,14 @@ const RightBar = () => {
                 <div className='container__barem-bar' >
                     {list.baremList.map((barem, keyBarem) => (
                         <div className='barem' key={keyBarem}>
-                            <p className='barem__p' >{barem.minimumQuantity}</p>
-                            <p className='barem__p' >{barem.maximumQuantity}</p>
+                            <p className={`barem__p ${activeBarem ? 'baremClassActive' : ''}`} >{barem.minimumQuantity}</p>
+                            <p className={`barem__p ${activeBarem ? 'baremClassActive' : ''}`}   >{barem.maximumQuantity}</p>
                         </div>
                     ))}
                 </div>
                 <div className='barem__amount__info' >
                     <p>Adet</p>
-                    <input onChange={e => handleChange(e.target.value)} />
+                    <input onChange={handleChange} placeholder="100" />
                     <p className='barem__amount__piece' >Adet</p>
                     <p className={`barem__amount-p ${amountError ? 'errorColor' : ''}`} >Stok Adeti: 500</p>
                 </div>
@@ -143,8 +135,7 @@ const RightBar = () => {
                 </div>
                 <button className='barem__button' >SEPETE EKLE</button>
             </div>
-      
-        </div>
+        </div >
     );
 };
 

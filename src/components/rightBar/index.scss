@@ -41,6 +41,7 @@
         height: 130px;
         position: relative !important;
         bottom: 50px;
+
         h4 {
             width: 120px;
         }
@@ -145,6 +146,7 @@
     width: 120px;
     height: 30px;
     background: rgb(226, 225, 225);
+    color: green;
 }
 
 .container__rightBar-piece {
@@ -237,7 +239,11 @@
     bottom: 100px;
     left: 260px;
 }
-.errorColor{
-color: red;
-font-weight: 600;
+
+.errorColor {
+    color: red;
+    font-weight: 600;
+}
+.baremClassActive{
+    background: red;
 }

@@ -7,7 +7,7 @@ import RightTopBar from './rightTopBar';
 import './index.scss';
 
 const RightBar = () => {
-        
+    const [selectedSize, setSelectedSize] = useState('');
     const [amountError, setAmounError] = useState(false)
     const [inputValue, setInputValue] = useState()
     const [activeBarem, setActiveBarem] = useState(false)

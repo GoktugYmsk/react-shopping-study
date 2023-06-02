@@ -3,7 +3,6 @@
     flex-direction: column;
     flex-basis: 40%;
     height: 80vh;
-
     padding: 10px;
     box-sizing: border-box;
 
@@ -117,7 +116,7 @@
             font-weight: 600;
             width: 50px;
             height: 50px;
-            margin-left: 20px;
+            margin-left: 40px;
 
             &:hover {
                 background: rgb(255, 208, 0);
@@ -154,6 +153,11 @@
 .container__rightBar-piece {
     position: relative;
     bottom: 60px;
+
+    span {
+        font-size: 18px;
+        opacity: 0.2;   
+    }
 }
 
 .barem__amount__piece {
@@ -239,7 +243,8 @@
     position: relative;
     display: flex;
     bottom: 100px;
-    left: 260px;
+    left: 230px;
+    width: 180px;
 }
 
 .errorColor {
@@ -249,4 +254,8 @@
 
 .baremClassActive {
     background: red;
+}
+
+.container__rightBar-piece__span {
+    opacity: 0.4;
 }

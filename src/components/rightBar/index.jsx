@@ -45,7 +45,7 @@ const RightBar = () => {
 
     return (
         <div className="container-RightBar">
-            <RightTopBar handleSizeChange={handleSizeChange} getVariantByColor={getVariantByColor}
+            <RightTopBar handleSizeChange={handleSizeChange} getVariantByColor={getVariantByColor} list ={list}
                 setSelectedSize={setSelectedSize} />
             <RightAltBar list={list} activeBarem={activeBarem} handleChange={handleChange} amountError={amountError} />
         </div >
